@@ -74,6 +74,49 @@
     </ul>
   </section>
 
+  <!-- Section: search -->
+  <section class="section section-search purple lighten-2 white-text center">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h3>Search Destination</h3>
+          <div class="input-field">
+            <input class="white grey-text autocomplete" type="text" placeholder="Search here..." id="autocomplete-input">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Icon Boxes -->
+  <section class="section section-icons grey lighten-3 center">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card-panel">
+            <i class="material-icons large purple-text">room</i>
+            <h4>Pick Where</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, eum.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card-panel">
+            <i class="material-icons large purple-text">store</i>
+            <h4>Travel Shop</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, eum.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card-panel">
+            <i class="material-icons large purple-text">airplanemode_active</i>
+            <h4>Fly Cheap</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, eum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -88,6 +131,19 @@
         transition: 500,
         interval: 3000
       })
+      // Autocomplete
+      $('.autocomplete').autocomplete({
+        data: {
+          "Aruba": null,
+          "Cancun Mexico": null,
+          "Hawaii": null,
+          "Florida": null,
+          "California": null,
+          "Jamaica": null,
+          "Europe": null,
+          "The Bahamas": null,
+        }
+      });
 
     });
   </script>
