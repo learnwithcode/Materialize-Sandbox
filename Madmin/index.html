@@ -224,6 +224,97 @@
       </div>
     </div>
   </section>
+
+  <!-- Fixed Action button -->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red"><i class="material-icons">add</i></a>
+    <ul>
+      <li>
+        <a href="#post-modal" class="modal-trigger btn-floating blue"><i class="material-icons">mode_edit</i></a>
+      </li>
+      <li>
+        <a href="#category-modal" class="modal-trigger btn-floating blue"><i class="material-icons">folder</i></a>
+      </li>
+      <li>
+        <a href="#user-modal" class="modal-trigger btn-floating blue"><i class="material-icons">supervisor_account</i></a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Add Post Modal -->
+  <div id="post-modal" class="modal">
+    <div class="modal-content">
+      <h4>Add Post</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="title">
+          <label for="title">Title</label>
+        </div>
+        <div class="input-field">
+          <select>
+            <option value="" disabled>Select option</option>
+            <option value="1">Web Development</option>
+            <option value="2">Graphic Design</option>
+            <option value="3">Tech Gadgets</option>
+            <option value="4">Other</option>
+            <label>Category</label>
+          </select>
+        </div>
+        <div class="input-field">
+          <textarea name="body" id="body" class="materialize-textarea"></textarea>
+          <label for="body">Body</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Category Modal -->
+  <div id="category-modal" class="modal">
+    <div class="modal-content">
+      <h4>Add Category</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="title">
+          <label for="title">Title</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add User Modal -->
+  <div id="user-modal" class="modal">
+    <div class="modal-content">
+      <h4>Add User</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="username">
+          <label for="username">Username</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="email">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="password">
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="password2">
+          <label for="password2">Password 2</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="section teal lighten-1 white-text center">
     <p>Madmin Panel | Copyright &copy; 2018</p>
@@ -248,6 +339,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
   <script src="js/chart.js"></script>
   <script>
     // Hide Sections
@@ -263,6 +355,13 @@
 
         //Init Side nav
         $('.button-collapse').sideNav();
+
+        // Init modal
+        $('.modal').modal()
+
+        // Init Select
+        $('select').material_select()
+
         // Counter
         $('.count').each(function () {
           $(this).prop('Counter', 0).animate({
@@ -313,7 +412,7 @@
           e.preventDefault();
         });
 
-
+        CKEDITOR.replace('body');
       });
     }, 1000);
   </script>
