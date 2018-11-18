@@ -13,7 +13,7 @@
   <title>Custom Materialize Theme</title>
 </head>
 
-<body>
+<body class="teal lighten-4">
 
   <nav class="teal lighten-2">
     <div class="container">
@@ -97,7 +97,7 @@
   </section>
 
   <!-- Section: Visitors -->
-  <section class="section section-visitors blue lighten-4">
+  <section class="section section-visitors white lighten-4">
     <div class="row">
       <div class="col s12 m6 l8">
         <div class="card-panel">
@@ -142,7 +142,92 @@
     </div>
   </section>
 
-
+  <!-- Section:Recent Posts & Todos -->
+  <section class="section section-recent">
+    <div class="row">
+      <div class="col s12 m6 l8">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Recent posts</span>
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Post one</td>
+                  <td>Web development</td>
+                  <td><a href="details.html" class="btn teal lighten-2">Details</a></td>
+                </tr>
+                <tr>
+                  <td>Post Two</td>
+                  <td>Graphics design</td>
+                  <td><a href="details.html" class="btn teal lighten-2">Details</a></td>
+                </tr>
+                <tr>
+                  <td>Post Three</td>
+                  <td>Web development</td>
+                  <td><a href="details.html" class="btn teal lighten-2">Details</a></td>
+                </tr>
+                <tr>
+                  <td>Post Four</td>
+                  <td>Graphics design
+                  </td>
+                  <td><a href="details.html" class="btn teal lighten-2">Details</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Quick Todos</span>
+            <form id="todo-form">
+              <div class="input-field">
+                <input type="text" placeholder="Add Todo.." id="todo">
+              </div>
+            </form>
+            <ul class="collection todos">
+              <li class="collection-item">
+                <div>Todo One
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i></a>
+                </div>
+              </li>
+              <li class="collection-item">
+                <div>Todo Two
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i></a>
+                </div>
+              </li>
+              <li class="collection-item">
+                <div>Todo Three
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i></a>
+                </div>
+              </li>
+              <li class="collection-item">
+                <div>Todo Four
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="section teal lighten-1 white-text center">
+    <p>Madmin Panel | Copyright &copy; 2018</p>
+  </footer>
 
   <!-- Preloader -->
   <div class="loader preloader-wrapper big active">
@@ -175,6 +260,9 @@
 
         // Hide preloader
         $('.loader').fadeOut();
+
+        //Init Side nav
+        $('.button-collapse').sideNav();
         // Counter
         $('.count').each(function () {
           $(this).prop('Counter', 0).animate({
@@ -196,6 +284,32 @@
         });
         $('.deny').click(function (e) {
           Materialize.toast('Comment Denied', 3000);
+          e.preventDefault();
+        });
+
+
+        // Quick Todos
+        $('#todo-form').submit(function (e) {
+          const output = `<li class="collection-item">
+                <div>${$('#todo').val()}
+                  <a href="#!" class="secondary-content delete">
+                    <i class="material-icons">close</i>
+                  </a>
+                </div>
+              </li>`;
+
+          $('.todos').append(output);
+
+          Materialize.toast('Todo Added', 3000);
+
+          e.preventDefault();
+        });
+
+        // Delete Todos
+        $('.todos').on('click', '.delete', function (e) {
+          $(this).parent().parent().remove();
+          Materialize.toast('Todo Removed', 3000);
+
           e.preventDefault();
         });
 
