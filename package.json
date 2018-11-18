@@ -1,0 +1,23 @@
+{
+  "name": "materialize",
+  "version": "1.0.0",
+  "description": "Landing Themes and Sandbox.",
+  "homepage": "https://learnwithcode.github.io/Materialize-Sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learnwithcode/Materialize-Sandbox.git"
+  },
+  "author": "Abhiraj Pundir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/learnwithcode/Materialize-Sandbox/issues"
+  },
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}
